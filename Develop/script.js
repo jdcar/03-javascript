@@ -8,7 +8,7 @@ function generatePassword() {
   const numbers = "0123456789"
   const specialCharacters = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
-  let password = "";
+  let passwordCharacters = "";
 
   let passwordLength = prompt("What length should the password be? Choose a number between 8 and 128");
 
@@ -23,8 +23,8 @@ function generatePassword() {
   var passwordLowerCase = prompt("Should password include lowercase letters? Type any key to say yes, for no leave blank.");
 
   if (passwordLowerCase) {
-    password = password + lowerCaseLetters
-    console.log(password)
+    passwordCharacters = passwordCharacters + lowerCaseLetters
+    console.log(passwordCharacters)
     console.log("Password will include lower case")
   } else {
     console.log("Password will not include lower case")
@@ -33,8 +33,8 @@ function generatePassword() {
   var passwordUpperCase = prompt("Should password include upper case letters? Type any key to say yes, for no leave blank.");
 
   if (passwordUpperCase) {
-    password = password + upperCaseLetters
-    console.log(password)
+    passwordCharacters = passwordCharacters + upperCaseLetters
+    console.log(passwordCharacters)
     console.log("Password will include upper case")
   } else {
     console.log("Password will not include upper case")
@@ -43,8 +43,8 @@ function generatePassword() {
   var passwordNumbers = prompt("Should password include numbers? Type any key to say yes, for no leave blank.")
 
   if (passwordNumbers) {
-    password = password + numbers
-    console.log(password)
+    passwordCharacters = passwordCharacters + numbers
+    console.log(passwordCharacters)
     console.log("Password will include numbers")
   } else {
     console.log("No numbers needed")
@@ -53,8 +53,8 @@ function generatePassword() {
   var passwordSpecialChars = prompt("Should password include special characters? Special characters include:\n !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~")
 
   if (passwordSpecialChars) {
-    password = password + specialCharacters
-    console.log(password)
+    passwordCharacters = passwordCharacters + specialCharacters
+    console.log(passwordCharacters)
     console.log("Password will include special characters")
   } else {
     console.log("No special characters needed")
@@ -65,25 +65,34 @@ function generatePassword() {
 
   // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
   // https://www.codegrepper.com/code-examples/r/random+letter+from+string+javascript
-  var text = "";
+  var password = "";
   for (var i = 0; i < passwordLength; i++)
-    text += password.charAt(Math.floor(Math.random() * password.length));
-  console.log(text)
-  alert("Password generated!")
-  return text;
-// At this point the generated password is the variable text
+    password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
+  console.log(password)
+  alert("Password generated!: " + "\n" + password)
 
-  var generateBtn = document.querySelector("#generate");
+  // Below is code that needs work
+  var replaceReadOnly = document.querySelector(placeholder);
+
+  replaceReadOnly.document.body.children[0].childNodes[3].children[1].childNodes[1].placeholder("placeholder", password);
+
+
+  return password;
+  // At this point the generated password is the variable text
+
+
 
 }
 
 
 // Refractor code starts here
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate")
+// writePassword();
+
+
 
 // this puts the password generated into the box where it now says "Your secure Passord"
-
 
 // Write password to the #password input
 function writePassword() {
@@ -91,6 +100,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  // document.body.children[0].childNodes[3].children[1].childNodes[1].placeholder
 
 }
 
