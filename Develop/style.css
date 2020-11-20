@@ -1,3 +1,7 @@
+/* Jamie Carlstone
+ 03-JAVASCRIPT
+ November 21, 2020 */
+
 *,
 *::before,
 *::after {
@@ -117,6 +121,8 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
+
+/* Responsible styles */
 
 @media (max-width: 690px) {
   .btn {

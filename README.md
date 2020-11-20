@@ -3,7 +3,8 @@
 https://github.com/jdcar/03-javascript
 
 Jamie Carlstone
-03-JAVASCRIPT
+- 03-JAVASCRIPT
+- November 21, 2020
 
 ## Description
 
@@ -11,11 +12,11 @@ Password Generator builds a random password from selected types of characters: L
 
 ## Submission files
 
-*README.md
-*screenshot.jpd
-*index.html
-*script.js
-*style.css
+* README.md
+* screenshot.jpd
+* index.html
+* script.js
+* style.css
 
 ## Screenshot
 
