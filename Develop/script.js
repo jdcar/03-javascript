@@ -8,14 +8,16 @@ function generatePassword() {
   // Variables of all the potential password characters
   const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz"
   const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  const numbers = "0123456789"
+  const numbers = "01234567890123456789"
   const specialCharacters = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-  // Starts password as empty string
+  // Starts password as an empty string
   let passwordCharacters = "";
 
   let passwordLength = prompt("What length should the password be? Choose a number between 8 and 128");
   // Ask for length of passwords
   if (passwordLength >= 8 && passwordLength <= 128) {
+    // if (passwordLength >= 0 && passwordLength <= 1) {
+
 
     console.log("Password is correct length")
     console.log(passwordLength)
@@ -76,13 +78,97 @@ function generatePassword() {
     password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
   console.log(password)
 
-  alert("Password generated!: " + "\n" + password)
+  // VALIDATION
 
+  // var arrayLowerCase = lowerCaseLetters.split("");
+  // var arrayUpperCase = upperCaseLetters.split("");
+  // var arrayNumbers = numbers.split("");
+  // var arraySpecialCharacters = specialCharacters.split("");
+  // var arrayOfPassword = password.split("");
 
+  // // Checks lower case
+  // if (passwordLowerCase) {
+  //   count = 0;
+  //   for (var i = 0; i < arrayLowerCase.length; i++) {
+  //     for (var j = 0; j < arrayOfPassword.length; j++) {
+  //       if (arrayLowerCase[i] === arrayOfPassword[j]) {
+  //         count++;
+  //         if (count > 0) {
+  //           console.log("Password is valid")
+  //           writePassword();
+  //         } else {
+  //           console.log("Password has no lowercase letters, generate a new one!")
+  //           generatePassword();
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // // Checks upper case
+  // if (passwordUpperCase) {
+  //   count = 0;
+  //   for (var i = 0; i < arrayUpperCase.length; i++) {
+  //     for (var j = 0; j < arrayOfPassword.length; j++) {
+  //       if (arrayUpperCase[i] === arrayOfPassword[j]) {
+  //         count++;
+  //         if (count > 0) {
+  //           console.log("Password is valid")
+  //           writePassword();
+  //         } else {
+  //           console.log("Password has no upper case letters, generate a new one!")
+  //           generatePassword();
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // // Checks numbers
+  // if (passwordNumbers) {
+  //   count = 0;
+  //   for (var i = 0; i < arrayNumbers.length; i++) {
+  //     for (var j = 0; j < arrayOfPassword.length; j++) {
+  //       if (arrayNumbers[i] === arrayOfPassword[j]) {
+  //         count++;
+  //         if (count > 0) {
+  //           console.log("Password is valid")
+  //           writePassword();
+  //         } else {
+  //           console.log("Password has no numbers, generate a new one!")
+  //           generatePassword();
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // // Checks Special characters
+  // if (passwordSpecialChars) {
+  //   count = 0;
+  //   for (var i = 0; i < arraySpecialCharacters.length; i++) {
+  //     for (var j = 0; j < arrayOfPassword.length; j++) {
+  //       if (arraySpecialCharacters[i] === arrayOfPassword[j]) {
+  //         count++;
+  //         if (count > 0) {
+  //           console.log("Password is valid")
+  //           writePassword();
+  //         } else {
+  //           console.log("Password has no special characters, generate a new one!")
+  //           generatePassword();
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // End VALIDATION
+
+  // Function that writes password to the box
   function writePassword() {
     document.querySelector("#password").innerHTML = password;
 
   }
+
+  // Call the function that writes password to box
 
   writePassword();
 
@@ -95,30 +181,5 @@ generateBtn.addEventListener("click", generatePassword, function (event) {
   event.preventDefault();
 
 });
-
-
-
-
-
-
-// Instructions:
-
-// WHEN I click the button to generate a password
-
-// THEN I am presented with a series of prompts for password criteria
-
-// WHEN prompted for password criteria
-
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
 
 
