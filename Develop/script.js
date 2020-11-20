@@ -2,24 +2,27 @@
 // Prompts for password criteria
 
 function generatePassword() {
-
+// Variables of all the potential password characters
   const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz"
   const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   const numbers = "0123456789"
   const specialCharacters = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-
+// Starts password as empty string
   let passwordCharacters = "";
 
   let passwordLength = prompt("What length should the password be? Choose a number between 8 and 128");
-
+// Ask for length of passwords
   if (passwordLength >= 8 && passwordLength <= 128) {
+
     console.log("Password is correct length")
     console.log(passwordLength)
   } else {
-    prompt("Please enter a number between 8 and 128")
+    alert("Please enter a number between 8 and 128")
+    // restart program if password is wrong length
     console.log("Password does not meet criteria")
+    generatePassword();
   }
-
+// Prompt for including lower case letters
   var passwordLowerCase = prompt("Should password include lowercase letters? Type any key to say yes, for no leave blank.");
 
   if (passwordLowerCase) {
@@ -29,7 +32,7 @@ function generatePassword() {
   } else {
     console.log("Password will not include lower case")
   }
-
+// Prompt for including upper case letters
   var passwordUpperCase = prompt("Should password include upper case letters? Type any key to say yes, for no leave blank.");
 
   if (passwordUpperCase) {
@@ -39,7 +42,7 @@ function generatePassword() {
   } else {
     console.log("Password will not include upper case")
   }
-
+// Prompt for including numbers
   var passwordNumbers = prompt("Should password include numbers? Type any key to say yes, for no leave blank.")
 
   if (passwordNumbers) {
@@ -49,7 +52,7 @@ function generatePassword() {
   } else {
     console.log("No numbers needed")
   }
-
+// Prompt for incuding special characters
   var passwordSpecialChars = prompt("Should password include special characters? Special characters include:\n !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~")
 
   if (passwordSpecialChars) {
@@ -61,26 +64,95 @@ function generatePassword() {
   }
 
   // Now the variable "password" is made up of all the characters that can be used
-
-
   // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
   // https://www.codegrepper.com/code-examples/r/random+letter+from+string+javascript
+
+// Selects random characters for password at correct length
   var password = "";
   for (var i = 0; i < passwordLength; i++)
     password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
   console.log(password)
+
+  // validate password 
+
+  // Convert potential password characters to arrays
+  var arrayLowerCase = passwordLowerCase.split("");
+  var arrayUpperCase = passwordUpperCase.split("");
+  var arrayNumbers = passwordNumbers.split("");
+  var arraySpecialCharacters = passwordSpecialChars.split("");
+  
+  // COnvert password to an array
+  var arrayOfPassword = password.split("");
+
+// run nested loops to determine if the password contains each type of character
+  if (passwordLowerCase) {
+    for (let i = 0; i < arrayOfPassword.length; i++) {
+      for (let j = 0; j < arrayLowerCase.length; j++) {
+        if (arrayOfPassword[i] != arrayLowerCase[j]) {
+          console.log("password is missing a lower case letter")
+          alert("Password is missing a lower case letter. Try again to get a new password")
+          generatePassword();
+        } else {
+          console.log("password is valid")
+        }
+      }
+    }
+  }
+  if (passwordUpperCase) {
+    for (let i = 0; i < arrayOfPassword.length; i++) {
+      for (let j = 0; j < arrayUpperCase.length; j++) {
+        if (arrayOfPassword[i] != arrayUpperCase[j]) {
+          console.log("password is missing an upper case letter")
+          alert("Password is missing an upper case letter. Try again to get a new password")
+          generatePassword()
+        } else {
+          console.log("password is valid")
+        }
+      }
+    }
+  }
+  if (passwordNumbers) {
+    for (let i = 0; i < arrayOfPassword.length; i++) {
+      for (let j = 0; j < arrayNumbers.length; j++) {
+        if (arrayOfPassword[i] != arrayNumbers[j]) {
+          console.log("password is missing a number")
+          alert("Password is missing a number. Try again to get a new password")
+          generatePassword()
+        } else {
+          console.log("password is valid")
+        }
+      }
+    }
+  }
+  if (passwordSpecialChars) {
+    for (let i = 0; i < arrayOfPassword.length; i++) {
+      for (let j = 0; j < arraySpecialCharacters.length; j++) {
+        if (arrayOfPassword[i] != arraySpecialCharacters[j]) {
+          console.log("password is missing a special character")
+          alert("Password is missing a number. Try again to get a new password")
+          generatePassword();
+        } else {
+          console.log("password is valid")
+        }
+      }
+    }
+  }
+
+
   alert("Password generated!: " + "\n" + password)
-
-  // Below is code that needs work
-  var replaceReadOnly = document.querySelector(placeholder);
-
-  replaceReadOnly.document.body.children[0].childNodes[3].children[1].childNodes[1].placeholder("placeholder", password);
-
 
   return password;
   // At this point the generated password is the variable text
 
+  // var body = document.body;
 
+  // var createh4 = document.children[0].childNodes[3].children[1].childNodes[1].createElement("h4");
+
+  // createh1.textContent = password;
+
+  // body.appendChild(createh4);
+
+  // h1El.setAttribute("style", "margin:auto; width:50%; text-align:center;");
 
 }
 
@@ -101,7 +173,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-  // document.body.children[0].childNodes[3].children[1].childNodes[1].placeholder
+  // document.body.children[0].childNodes[3].children[1].childNodes[1].innerText = passwordText;
 
 }
 
