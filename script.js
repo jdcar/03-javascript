@@ -6,6 +6,7 @@ var generateBtn = document.querySelector("#generate")
 
 // Prompts for password criteria
 
+
 function generatePassword() {
 
   // Variables of all the potential password characters
@@ -23,10 +24,10 @@ function generatePassword() {
     console.log("Password is correct length")
     console.log(passwordLength)
   } else {
-    alert("Please enter a number between 8 and 128")
+    alert("Password does not meet criteria")
+    return password;
     // restart program if password is wrong length
-    console.log("Password does not meet criteria")
-    generatePassword();
+    // console.log("Password does not meet criteria")
   }
 
   // Prompt for including lower case letters
