@@ -1,6 +1,7 @@
 # 03-javascript
 
-https://github.com/jdcar/03-javascript
+* https://github.com/jdcar/03-javascript
+* https://jdcar.github.io/03-javascript/ 
 
 Jamie Carlstone
 - 03-JAVASCRIPT
