@@ -24,14 +24,14 @@ function generatePassword() {
     console.log("Password is correct length")
     console.log(passwordLength)
   } else {
-    alert("Password does not meet criteria")
+    confirm("Password does not meet criteria")
     return password;
     // restart program if password is wrong length
     // console.log("Password does not meet criteria")
   }
 
   // Prompt for including lower case letters
-  var passwordLowerCase = prompt("Should password include lowercase letters? Type any key to say yes, for no leave blank.");
+  var passwordLowerCase = confirm("Should password include lowercase letters? Click OK for yes, Cancel for no");
 
   if (passwordLowerCase) {
     passwordCharacters = passwordCharacters + lowerCaseLetters
@@ -42,7 +42,7 @@ function generatePassword() {
   }
 
   // Prompt for including upper case letters
-  var passwordUpperCase = prompt("Should password include upper case letters? Type any key to say yes, for no leave blank.");
+  var passwordUpperCase = confirm("Should password include upper case letters? Click OK for yes, Cancel for no.");
 
   if (passwordUpperCase) {
     passwordCharacters = passwordCharacters + upperCaseLetters
@@ -53,7 +53,7 @@ function generatePassword() {
   }
 
   // Prompt for including numbers
-  var passwordNumbers = prompt("Should password include numbers? Type any key to say yes, for no leave blank.")
+  var passwordNumbers = confirm("Should password include numbers? Click OK for yes, Cancel for no.")
 
   if (passwordNumbers) {
     passwordCharacters = passwordCharacters + numbers
@@ -64,7 +64,7 @@ function generatePassword() {
   }
   
   // Prompt for incuding special characters
-  var passwordSpecialChars = prompt("Should password include special characters? Special characters include:\n !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~")
+  var passwordSpecialChars = confirm("Should password include special characters? Click OK for yes, Cancel for no. Special characters include:\n !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~")
 
   if (passwordSpecialChars) {
     passwordCharacters = passwordCharacters + specialCharacters
